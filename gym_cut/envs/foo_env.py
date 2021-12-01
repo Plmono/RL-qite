@@ -17,7 +17,6 @@ class cutEnv(gym.Env):
         high = np.ones(90)
         low = np.zeros(90)
         self.state=np.array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]])
-        # self.l=np.zeros(90)
         self.t=0
         self.action_space = spaces.Discrete(2)
         self.observation_space = spaces.Box(low, high, dtype=np.float32)
@@ -42,9 +41,7 @@ class cutEnv(gym.Env):
             done=True
 
             N = 6
-            # D = 2
             beta = 6
-
             n_trotter = 6
 
 
@@ -124,21 +121,15 @@ class cutEnv(gym.Env):
                         psi = qite_step(psi, beta / n_trotter, h_list[pos], pos_list[pos])
                 ret = np.conj(psi).dot(H).dot(psi).real
                 return ret
-            # seed=np.random.randint(0,10)
-            # np.random.seed(seed)
             h_list, pos_list, H = MaxCut_Hamiltonian()
             n_term = len(h_list)
 
         if t==90:
-            # eig_val, eig_vec = linalg.eig(H)
-            # baseline=[-3.195968743642888,-2.631838608621457,-2.0119149112160306,-3.778258430203148,-3.775268796166832,-2.3884244278250946,-2.594147971201461,-3.23595243162399,-3.1766647714995893,-3.000338465455053]
-
             qite_layout = state.tolist()
 
 
 
-            R=-QITE(qite_layout)/3.5757973907199148 #2.7101472868856837 3.1456427512668443 3.4502978148602867 3.197361363443018 2.8843179143643956
-            #3.204289342778032 3.4299421442101403 3.5757973907199148
+            R=-QITE(qite_layout)/3.5757973907199148
             if R<=1:
                 R=-1
             else:
@@ -147,7 +138,6 @@ class cutEnv(gym.Env):
 
         self.state=state
         self.t = t
-        # self.l=l
         state=state/14.0
         return np.array(reduce(operator.add, state.tolist())),float(R),done,{}
 
@@ -157,8 +147,6 @@ class cutEnv(gym.Env):
         self.state=np.array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]])
         self.t=0
         state=self.state/14.0
-        # self.l=np.zeros(90)
-        # self.l = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         return np.array(reduce(operator.add, state.tolist()))
 
     def render(self, mode='human', close=False):
