@@ -25,10 +25,10 @@ If you find this work helps your research or use the code, please consider to ci
 # Results 
 Results for the TFIM.
 
-![altext](imgs/Fig3.pdf)
+![altext](imgs/TFIM.png)
 
 
 
 Results for the Maxcut
 
-![altext](imgs/Fig4.pdf)
+![altext](imgs/maxcut.png)
