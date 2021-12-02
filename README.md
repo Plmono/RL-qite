@@ -21,3 +21,14 @@ python run.py
 
 ## References 
 If you find this work helps your research or use the code, please consider to cite our official reference. Thank you.
+
+# Results 
+Results for the TFIM.
+
+![altext](imgs/Fig3.pdf)
+
+
+
+Results for the Maxcut
+
+![altext](imgs/Fig4.pdf)
