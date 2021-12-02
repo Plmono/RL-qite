@@ -25,10 +25,10 @@ If you find this work helps your research or use the code, please consider to ci
 # Results 
 Results for the TFIM.
 
-![TFIM](https://github.com/Plmono/RL-qite/tree/main/imgs/TFIM.PNG)
+![TFIM](https://github.com/Plmono/RL-qite/blob/main/imgs/TFIM.PNG)
 
 
 
 Results for the Maxcut
 
-![MAXCUT](https://github.com/Plmono/RL-qite/tree/main/imgs/maxcut.PNG)
+![MAXCUT](https://github.com/Plmono/RL-qite/blob/main/imgs/maxcut.PNG)
